@@ -3,17 +3,19 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
     fullName:{
         type:String,
-        require:true,
+        required:true,
     },
     userName:{
         type:String,
-        require:true,
+        required:true,
     },
     password:{
         type:String,
-        require:true,
-        minlength: 6,
-    }
+        required:true,
+        minlength: 8,
+    },
+},{
+    timestamps:true
 })
 
 const User = mongoose.model("User",userSchema);
