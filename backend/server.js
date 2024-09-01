@@ -6,7 +6,7 @@ import wishRoutes from './Routes/wishlist.route.js'
 import cookieParser from "cookie-parser";
 import cors from 'cors'
 
-dotenv.config({ path: '../.env' });
+dotenv.config();
 
 const app = express();
 const corsOptions = {

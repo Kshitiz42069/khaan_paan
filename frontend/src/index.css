@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Sevillana&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.DS{
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@layer utilities {
+    .login-button {
+      @apply border-white border-2 p-2 rounded-lg hover:text-black hover:bg-white transition-all ease-in-out duration-500;
+    }
+    .signup-button {
+        @apply bg-white text-black p-2 rounded-lg hover:text-white hover:bg-black transition-all ease-in-out duration-500;
+    }
+  }
+
+  .getInTouch{
+    @apply absolute lg:top-[2rem] top-[0.5rem] right-2 lg:right-[2rem] text-white border-[1px] border-white lg:py-1 px-6 rounded-[27px] lg:rounded-[21px] font-sans font-semibold lg:text-[1rem] text-[11px] leading-[46px] lg:leading-[2.25rem];
+  }
+  
+  .explore{
+    @apply lg:px-[2.15rem] px-[30px] py-[12px] lg:py-[0.9rem] rounded-[30px] lg:rounded-[2.15rem] bg-[#E23744] text-white text-[12.27px] lg:text-[18px] lg:leading-[36px] leading-[31.54px] lg:w-[11.9rem];
+  }
+  
+  .page_button{
+    @apply border-[1px] rounded-[5px] w-[16px] h-[16px] lg:w-[28px] lg:h-[29px] border-[#424961] flex items-center justify-center;
+  }
