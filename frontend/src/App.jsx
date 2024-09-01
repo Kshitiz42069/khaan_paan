@@ -38,7 +38,13 @@ function App() {
               <Explore/>
               <Footer/>
             </div>}/>
-            <Route path='/recipe_detail/:id' element={<RecipeDetail/>}/>
+            <Route path='/recipe_detail/:id' element={
+              <div>
+                <Navbar/>
+                <RecipeDetail/>
+                <Footer/>
+            </div>
+            }/>
             <Route path='/account_detail/:id' element={<Account/>}/>
          </Routes>
       </div>

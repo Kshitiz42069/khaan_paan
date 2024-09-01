@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import useSpoonacular from "../../hooks/UseRecipeFetch";
+import { Link } from "react-router-dom";
 
 function Explore() {
   const [query, setQuery] = useState("");
@@ -38,18 +39,20 @@ function Explore() {
 
             <div className="pb-[2rem] pt-[4rem] grid grid-cols-3 gap-[2rem]">
                 {recipes.map((recipe) => (
-                <div key={recipe.id} className="card bg-base-100 w-96 shadow-xl hover:scale-105 transition-all ease-in-out duration-300">
-                    <figure>
-                    <img
-                        className="h-full w-full"
-                        src={recipe.image}
-                        alt={recipe.title}
-                    />
-                    </figure>
-                    <div className="card-body">
-                    <h2 className="card-title">{recipe.title}</h2>
+                  <Link key={recipe.id} to={`/recipe_detail/${recipe.id}`}>
+                    <div className="card bg-base-100 w-96 shadow-xl hover:scale-105 transition-all ease-in-out duration-300">
+                        <figure>
+                        <img
+                            className="h-full w-full"
+                            src={recipe.image}
+                            alt={recipe.title}
+                        />
+                        </figure>
+                        <div className="card-body">
+                        <h2 className="card-title">{recipe.title}</h2>
+                        </div>
                     </div>
-                </div>
+                </Link>
                 ))}
             </div>
         </div>
