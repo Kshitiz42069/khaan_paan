@@ -1,5 +1,19 @@
+import { useState } from "react";
+import UseSignUp from "../hooks/UseSignUp";
 
 const Signup = () => {
+  const {loading,signup} = UseSignUp();
+  const [inputs,setInputs] = useState({
+    fullname:'',
+    username:'',
+    password:'',
+    confirmPassword:''
+  })
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    await signup(inputs);
+  }
   return (
     <div className="flex items-center justify-center h-[90vh] overflow-hidden"
       style={{
@@ -18,33 +32,35 @@ const Signup = () => {
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleSubmit}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Full Name</span>
                 </label>
-                <input type="email" placeholder="Full Name" className="input input-bordered" required />
+                <input type="text" placeholder="Full Name" className="input input-bordered" value={inputs.fullname} onChange={(e)=>setInputs({...inputs,fullname: e.target.value})} required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+                <input type="email" placeholder="email" className="input input-bordered" value={inputs.username} onChange={(e)=>setInputs({...inputs,username: e.target.value})} required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
+                <input type="password" placeholder="password" className="input input-bordered" value={inputs.password} onChange={(e)=>setInputs({...inputs,password: e.target.value})} required />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Confirm Password</span>
                 </label>
-                <input type="password" placeholder="confirm password" className="input input-bordered" required />
+                <input type="password" placeholder="confirm password" value={inputs.confirmPassword} onChange={(e)=>setInputs({...inputs,confirmPassword: e.target.value})} className="input input-bordered" required />
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-black text-white hover:text-black">Sign Up</button>
+                <button className="btn bg-black text-white hover:text-black">
+                  {loading ? <span className='loading loading-spinner'></span>: "Sign Up"}
+                </button>
               </div>
             </form>
           </div>

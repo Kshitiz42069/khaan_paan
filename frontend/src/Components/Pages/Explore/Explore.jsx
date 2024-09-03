@@ -40,7 +40,7 @@ function Explore() {
             <div className="pb-[2rem] pt-[4rem] grid grid-cols-3 gap-[2rem]">
                 {recipes.map((recipe) => (
                   <Link key={recipe.id} to={`/recipe_detail/${recipe.id}`}>
-                    <div className="card bg-base-100 w-96 shadow-xl hover:scale-105 transition-all ease-in-out duration-300">
+                    <div className="card bg-base-100 w-[20rem] h-[20rem] shadow-xl hover:scale-105 transition-all ease-in-out duration-300">
                         <figure>
                         <img
                             className="h-full w-full"
