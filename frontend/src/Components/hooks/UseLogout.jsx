@@ -8,7 +8,7 @@ function UseLogout() {
     const logout = async()=>{
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:8000/api/auth/logout',{
+            const res = await fetch('https://khaan-paan.onrender.com/api/auth/logout',{
                 method:"POST",
                 headers:{"content-type":"application/json"}
             });

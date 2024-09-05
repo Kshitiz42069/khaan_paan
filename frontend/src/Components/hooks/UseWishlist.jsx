@@ -31,7 +31,7 @@ export const useAddToWishlist = () => {
 
     const addToWishlist = async (recipe) => {
         try {
-            const response = await fetch('http://localhost:8000/api/getlist', {
+            const response = await fetch('https://khaan-paan.onrender.com/api/getlist', {
                 method: 'POST',
                 credentials:"include",
                 headers: {
