@@ -1,9 +1,13 @@
 
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
+import { useAuthContext } from './context/AuthContext';
+import UseLogout from './hooks/UseLogout';
 
 
 const Navbar = () => {
+    const {authUser} = useAuthContext();
+    const {loading,logout} = UseLogout();
   return (
     <div className=" bg-black text-white py-[1rem]">
         <div className="flex items-center justify-between px-[2rem]">
@@ -18,17 +22,23 @@ const Navbar = () => {
 
             {/* auth */}
             {/* if not login */}
-            <div className='flex gap-[2rem]'>
-                <a href="/login"><button className='login-button w-[5rem]'>Login</button></a>
-                <a href="/signup"><button className='signup-button w-[5rem]'>Sign Up</button></a>
-            </div>
+
+            {authUser ? (
+                <div className='flex gap-[2rem]'>
+                    <a href="/wishlist"><button className='login-button flex'><LoyaltyOutlinedIcon/> Wishlist</button></a>
+                    <button onClick={logout} className='signup-button flex'><LogoutIcon/>
+                        {loading ? <span className=' loading loading-spinner'></span>:<p>Logout</p>}
+                    </button>
+                </div>
+            ):(
+                <div className='flex gap-[2rem]'>
+                    <a href="/login"><button className='login-button w-[5rem]'>Login</button></a>
+                    <a href="/signup"><button className='signup-button w-[5rem]'>Sign Up</button></a>
+                </div>
+            )}
 
             {/* changes to be done */}
             {/* if login */}
-            <div className='flex gap-[2rem] lg:hidden'>
-                <button className='login-button flex'><LoyaltyOutlinedIcon/> Wishlist</button>
-                <button className='signup-button flex'><LogoutIcon/> LogOut</button>
-            </div>
         </div>
     </div>
   )

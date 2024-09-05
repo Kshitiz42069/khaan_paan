@@ -1,10 +1,16 @@
 import { useParams } from "react-router-dom"
 import UseRecipeDetail from '../../hooks/UseRecipeDetail'
+import { useAddToWishlist } from "../../hooks/UseWishlist";
 
 
 const RecipeDetail = () => {
   const {id} = useParams();
   const {recipe,loading,error} = UseRecipeDetail(id);
+  const addToWishlist = useAddToWishlist();
+
+  const handleAddToWishlist = () => {
+    addToWishlist(recipe);
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -30,7 +36,7 @@ const RecipeDetail = () => {
           </div>
           {/* add to cart button */}
           <div>
-            <button className="btn bg-black text-white hover:text-black">Add To Wishlist</button>
+            <button onClick={handleAddToWishlist} className="btn bg-black text-white hover:text-black">Add To Wishlist</button>
           </div>
         </div>
       </div>
