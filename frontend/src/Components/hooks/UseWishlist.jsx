@@ -8,7 +8,7 @@ export const useFetchWishlist = () => {
 
     const fetchWishlist = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/wishlist', {
+            const response = await fetch('https://khaan-paan.onrender.com/api/wishlist', {
                 method: 'GET',
                 credentials:"include",
                 headers: {
@@ -54,7 +54,7 @@ export const useRemoveFromWishlist = () => {
 
     const removeFromWishlist = async (recipeId) => {
         try {
-            const response = await fetch('http://localhost:8000/api/wishlist', {
+            const response = await fetch('https://khaan-paan.onrender.com/api/wishlist', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
