@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 const corsOptions = {
-    origin:'http://localhost:5173',
+    origin:'https://khaan-paan.onrender.com/',
     credentials: true, // Allows cookies to be sent
 };
 
